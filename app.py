@@ -1,7 +1,15 @@
 # app.py
 import streamlit as st
-import sounddevice as sd
 import numpy as np
+uploaded_file = st.file_uploader("Upload your voice recording", type=["wav"])
+
+if uploaded_file is not None:
+    audio_bytes = uploaded_file.read()
+    
+    with open("temp.wav", "wb") as f:
+        f.write(audio_bytes)
+
+    sound = parselmouth.Sound("temp.wav")
 import parselmouth
 from parselmouth.praat import call
 from scipy.io.wavfile import write
