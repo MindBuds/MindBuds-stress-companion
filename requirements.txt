@@ -1,0 +1,6 @@
+streamlit
+sounddevice
+numpy
+parselmouth
+scipy
+pandas
